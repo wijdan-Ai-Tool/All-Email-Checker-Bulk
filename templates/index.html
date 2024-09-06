@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Validator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Email Validator</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".txt" required>
-        <button type="submit">Upload and Check</button>
-    </form>
-
-    <h2>Valid Emails</h2>
-    <ul style="color: green;">
-        {% for email in valid_emails %}
-            <li>{{ email }}</li>
-        {% endfor %}
-    </ul>
-
-    <h2>Invalid Emails</h2>
-    <ul style="color: red;">
-        {% for email in invalid_emails %}
-            <li>{{ email }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h1>Email Validator</h1>
+        <form>
+            <label for="file-upload">Upload a file:</label>
+            <input type="file" name="file" id="file-upload" accept=".txt">
+            <label for="email-text">Or paste emails:</label>
+            <textarea name="email_text" id="email-text" rows="10" placeholder="Enter one email per line"></textarea>
+            <button type="submit">Check Emails</button>
+        </form>
+        <div id="results">
+            <ul></ul>
+        </div>
+        <a id="download-btn" href="/download_valid" class="download-btn" style="display:none;">Download Valid Emails</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-    
