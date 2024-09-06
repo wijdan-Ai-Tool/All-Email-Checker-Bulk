@@ -84,6 +84,8 @@ def download_valid():
     return send_file('valid.txt', as_attachment=True)
 
 if __name__ == '__main__':
+        port = int(os.getenv('PORT', 80))
+    app.run(host='0.0.0.0', port=port)
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])
     app.run(debug=True)
