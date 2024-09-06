@@ -1,0 +1,13 @@
+<h2>Valid Emails</h2>
+<ul style="color: green;">
+    {% for email in valid_emails %}
+        <li>{{ email }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Invalid Emails</h2>
+<ul style="color: red;">
+    {% for email in invalid_emails %}
+        <li>{{ email }}</li>
+    {% endfor %}
+</ul>
